@@ -4,14 +4,60 @@ In this project, we will build a weather app using the OpenWeatherMap API(?). Th
 
 Here's what you need to do to get started:
 
-1. brew postgres (brew install postgresql@15)
+1. install postgres, either [manually](https://www.postgresql.org/download/macosx/) or using brew:
+```
+brew install postgresql@15
+```
+- to add postgresql to PATH, run:
+```
+echo 'export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"' >> ~/.zshrc
+```
+- to source it, run:
+```
+source ~/.zshrc
+```
+- to start postgresql, run:
+```
+brew services start postgresql@15
+```
+- to create a new role, run:
+```
+createuser -P -d appname
+```
+(You're gonna have to enter a password for the role)
+
 2. clone this repo to your local machine
-3. install ruby, check version
-4. install rails, check version
-5. setup postgres(create user, create database, etc)
-6. bundle install
-6. rails server --binding=127.0.0.1
-7. visit localhost:3000
+- In the terminal navigate to the location where you want to clone the repo, then run:
+```
+git clone https://github.com/JamieShifter/weather-app.git
+```
+3. In the terminal navigate to the repository location, you should see something like this:
+```
+➜  weather-app git:(main) 
+```
+- run:
+```
+bundle install
+```
+4. Go to database.yml and change the username and password to the ones you created in step 1, where **appname** is the name of the role you created.
+You can do it like this:
+```yml
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: appname
+  password: password
+```
+5. To check if everything works as expected, in the terminal run:
+```
+rails server --binding=127.0.0.1
+```
+7. In the browser of your choice, visit localhost:3000, you should see something like this:
+
+![This is an image](https://user-images.githubusercontent.com/73684/146308451-07ac525e-1e29-4360-969e-fc84fe8f369c.png)
+
+Boom, you're done!
 
 
 <!-- * Configuration
