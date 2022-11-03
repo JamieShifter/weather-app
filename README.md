@@ -26,12 +26,17 @@ createuser -P -d appname
 ```
 (You're gonna have to enter a password for the role)
 
-2. clone this repo to your local machine
+2. install redis, either [manually](https://redis.io/download) or using brew:
+```
+brew install redis
+```
+
+3. clone this repo to your local machine
 - In the terminal navigate to the location where you want to clone the repo, then run:
 ```
 git clone https://github.com/JamieShifter/weather-app.git
 ```
-3. In the terminal navigate to the repository location, you should see something like this:
+4. In the terminal navigate to the repository location, you should see something like this:
 ```
 ➜  weather-app git:(main) 
 ```
@@ -39,7 +44,7 @@ git clone https://github.com/JamieShifter/weather-app.git
 ```
 bundle install
 ```
-4. Go to database.yml and change the username and password to the ones you created in step 1, where **appname** is the name of the role you created.
+5. Go to database.yml and change the username and password to the ones you created in step 1, where **appname** is the name of the role you created.
 You can do it like this:
 ```yml
 default: &default
@@ -49,7 +54,12 @@ default: &default
   username: appname
   password: password
 ```
-5. To check if everything works as expected, in the terminal run:
+6. To check if everything works as expected, in the terminal run:
+```
+bin/setup
+```
+- then run:
+
 ```
 rails server --binding=127.0.0.1
 ```
