@@ -1,1 +1,29 @@
-<h1>Hello World!</h1>
+<!DOCTYPE html>
+<%= stylesheet_link_tag 'index.css'%>
+<html>
+  <body>
+    <main class="card">
+      <%= form_with url: "/search", method: :get do |form| %>
+        <%= form.label :query, "Your city:" %>
+        <%= form.text_field :query %>
+      <% end %>
+      <article class="content">
+        <%= time_tag Time.now %>
+        <section class="weather">
+          <p>13 °C</p>
+          <p>Cloudy</p>
+          <p>
+            <span>
+              <p>Humidity</p>
+              <p>45%</p>
+            </span>
+            <span>
+              <p>Wind speed</p>
+              <p>19.2 km/j</p>
+            </span>
+          </p>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
