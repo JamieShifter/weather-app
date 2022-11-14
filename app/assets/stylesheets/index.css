@@ -2,7 +2,7 @@ body {
   background-color: rgb(209, 209, 209);
   display: flex;
   justify-content: center;
-  align-items: center;
+  font-family: sans-serif;
 }
 
 .card {
@@ -18,11 +18,14 @@ body {
 
 .content {
   margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-.weather {
+.temperature {
+  font-size: 40px;
+}
 
+.weather-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
