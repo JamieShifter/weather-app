@@ -1,15 +1,21 @@
-<main class="card">
-  <%= form_with url: "/search", method: :get do |form| %>
-    <%= form.label :query, "Your city:" %>
-    <%= form.text_field :query %>
+<div class="card">
+  <%= form_with url: "/index", method: :get do |form| %>
+    <%= form.label :label, "Your city:" %>
+    <%= text_field_tag(:city) %>
+    <%= form.submit "Search" %>
   <% end %>
   <article class="content">
     <%= time_tag Time.now %>
-    <section class="temperature">
-      <p>13 °C</p>
-      <p>Cloudy</p>
-    </section>
-    <section class="weather-details">
+    <div class="temperature">
+      <p>
+        <%= @weather[:temperature] %> °C
+      </p>
+      <p class="description">
+        <span><%= @weather[:description] %></span>
+        <%= image_tag @weather[:icon_url] %>
+      </p>
+    </div>
+    <div class="weather-details">
       <span>
         <p>Humidity</p>
         <p>45%</p>
@@ -18,6 +24,6 @@
         <p>Wind speed</p>
         <p>19.2 km/j</p>
       </span>
-    </section>
+    </div>
   </article>
-</main>
+</div>

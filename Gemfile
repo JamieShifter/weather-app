@@ -45,6 +45,9 @@ gem "bootsnap", require: false
 # Use esbuild to compile JavaScript
 gem 'esbuild-rails'
 
+# Use http to make requests
+gem 'http'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
