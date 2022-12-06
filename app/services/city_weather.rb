@@ -10,6 +10,7 @@ class CityWeather < ApplicationService
     require "json"
 
     key = "583911f492d58ad6277957548f4831fe"
+    key = ENV["OPEN_WEATHER_MAP_API_KEY"]
     url = "https://api.openweathermap.org/data/2.5/weather?q=#{@city}&units=metric&appid=#{key}"
     response = JSON.parse(HTTP.get(url))
     weather = { 
