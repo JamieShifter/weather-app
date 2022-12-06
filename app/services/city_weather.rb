@@ -1,10 +1,16 @@
-module HomeHelper
-  def fetch_weather(city)
+class CityWeather < ApplicationService
+  attr_reader :city
+
+  def initialize(city)
+    @city = city
+  end
+
+  def call
     require "http"
     require "json"
 
     key = "583911f492d58ad6277957548f4831fe"
-    url = "https://api.openweathermap.org/data/2.5/weather?q=#{city}&units=metric&appid=#{key}"
+    url = "https://api.openweathermap.org/data/2.5/weather?q=#{@city}&units=metric&appid=#{key}"
     response = JSON.parse(HTTP.get(url))
     weather = { 
       description: response["weather"][0]["main"], 
