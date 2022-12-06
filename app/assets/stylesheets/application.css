@@ -30,3 +30,8 @@ body {
   flex-direction: row;
   justify-content: space-between;
 }
+
+.description {
+  display: flex;
+  align-items: center;
+}

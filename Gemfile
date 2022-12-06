@@ -45,12 +45,22 @@ gem "bootsnap", require: false
 # Use esbuild to compile JavaScript
 gem 'esbuild-rails'
 
+# Use http to make requests
+gem 'http'
+
+# Use pry to debug
+gem 'pry'
+gem 'pry-byebug'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+
+  # Use dotenv to load environment variables [https://github.com/bkeepers/dotenv]
+  gem 'dotenv-rails'
 end
 
 group :development do
