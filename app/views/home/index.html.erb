@@ -4,28 +4,12 @@
     <%= text_field_tag(:city) %>
     <%= form.submit "Search" %>
   <% end %>
-  <article class="content">
-    <%= time_tag Time.now %>
-    <div class="temperature">
-      <p>
-        <%= @weather[:temperature] %> °C
-      </p>
-      <p class="description">
-        <span><%= @weather[:description] %></span>
-        <% if @weather[:icon_url] %>
-          <%= image_tag @weather[:icon_url] %>
-        <% end %>
-      </p>
-    </div>
-    <div class="weather-details">
-      <span>
-        <p>Humidity</p>
-        <p>45%</p>
-      </span>
-      <span>
-        <p>Wind speed</p>
-        <p>19.2 km/j</p>
-      </span>
-    </div>
-  </article>
+  <% case @weather[:state] %>
+  <% when "initial" %>
+    <p>Waiting for your input</p>
+  <% when "success" %>
+    <%= render 'city_weather', :weather => @weather %>
+  <% when "error" %>
+    <p>There has ben an error</p>
+  <% end %>
 </div>
